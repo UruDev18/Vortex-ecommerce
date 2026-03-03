@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiko:wght@400;600;700&family=Figtree:wght@300;400;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Amiko", sans-serif;
+
+  --color-bg-deep: #0F2A43;
+  --color-accent-glow: #2EC4B6;
+  --color-surface-cream: #F1E9DA;
+  --color-alert-coral: #FF7F6A;
+  --color-pure-white: #FFFFFF;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-scan: scan 2s linear infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes scan {
+    0% { top: 0%; }
+    100% { top: 100%; }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-pure-white text-bg-deep font-sans antialiased selection:bg-accent-glow selection:text-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+.glass {
+  @apply backdrop-blur-[40px] bg-white/70 border-b border-bg-deep/10;
+}
+
+.magnetic-area {
+  @apply relative z-10;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
